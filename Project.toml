@@ -1,0 +1,13 @@
+name = "DiffusiveShockAccelerationModels"
+uuid = "66fc4661-a670-4cc2-b407-bfd81989e880"
+authors = ["Ludwig Böss"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
