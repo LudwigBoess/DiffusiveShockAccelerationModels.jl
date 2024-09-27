@@ -1,5 +1,5 @@
 """
-    Kang07(X_cr::T=0.05, η_max::T=0.0348) where T
+    Kang07(X_cr::T = 0.3, η_max::T = 0.57) where T
 
 Efficiency model by Kang, Ryu, Cen, Ostriker 2007, http://arxiv.org/abs/0704.1521v1
 
