@@ -8,7 +8,7 @@ end
 # DiffusiveShockAccelerationModels.jl
 
 This package provides a number of efficiency models for Diffuse Shock Acceleration (DSA). It provides a number of functions to calculate what fraction of the energy dissipated at a shock is used to accelerate Cosmic Rays (CRs).
-If you use this implementation in a publication please cite [Böss et. al. (2023)](https://ui.adsabs.harvard.edu/abs/2022arXiv220705087B/abstract).
+If you use this implementation in a publication please cite [Böss et al. (2023)](https://ui.adsabs.harvard.edu/abs/2022arXiv220705087B/abstract).
 
 # Install
 
@@ -20,9 +20,8 @@ As usual with Julia just run
 
 # Mach number dendent efficiency models
 
-Different authors found a number of models that describe the acceleration efficiency of CRs at shocks dependent on the sonic Mach number. Here we implemented the following DSA models:
-
-![Implemented DSA models](mach_efficiancy_models.png)
+Different authors found a number of models that describe the acceleration efficiency of CRs at shocks dependent on the sonic Mach number.
+Here we implemented the following DSA models, as summarized in [Böss et al. (2023)](https://ui.adsabs.harvard.edu/abs/2022arXiv220705087B/abstract):
 
 ```@docs
 Kang07
@@ -40,13 +39,32 @@ CS14
 Ryu19
 ```
 
+![Implemented DSA models](mach_efficiancy_models.png)
+
+
+You can also use the constant efficiency used by [Pfrommer et al. (2017)]():
+
 ```@docs
 P16
 ```
 
+
+On top of that you can find the DSA model by Kang (2024):
+
+```@docs
+Kang24p
+```
+
+```@docs
+Kang24e
+```
+
+![Kang 2024 DSA model](Kang2024.png)
+
+
 # Magnetic field angle dependent efficiency models
 
-Another parameter in the acceleration efficiency is the shock obliquity. Here we used the results from [Pais et. al. (2019)](http://arxiv.org/abs/1907.04300) who fit a functional form to the data by [Caprioli&Spitkovsky (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...783...91C/abstract).
+Another parameter in the acceleration efficiency is the shock obliquity. Here we used the results from [Pais et al. (2019)](http://arxiv.org/abs/1907.04300) who fit a functional form to the data by [Caprioli&Spitkovsky (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...783...91C/abstract).
 
 ```@docs
 η_B
