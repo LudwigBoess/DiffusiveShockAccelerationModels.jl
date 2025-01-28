@@ -41,14 +41,6 @@ Ryu19
 
 ![Implemented DSA models](mach_efficiancy_models.png)
 
-
-You can also use the constant efficiency used by [Pfrommer et al. (2017)]():
-
-```@docs
-P16
-```
-
-
 On top of that you can find the DSA model by Kang (2024):
 
 ```@docs
@@ -60,6 +52,13 @@ Kang24e
 ```
 
 ![Kang 2024 DSA model](Kang2024.png)
+
+
+You can also use the constant efficiency used by [Pfrommer et al. (2017)](https://ui.adsabs.harvard.edu/abs/2017MNRAS.465.4500P/abstract):
+
+```@docs
+P16
+```
 
 
 # Magnetic field angle dependent efficiency models
