@@ -41,7 +41,7 @@ Ryu19
 
 ![Implemented DSA models](mach_efficiancy_models.png)
 
-On top of that you can find the DSA model by Kang (2024):
+On top of that you can find the DSA model by [Kang (2024)](https://ui.adsabs.harvard.edu/abs/2024JKAS...57..155K/abstract):
 
 ```@docs
 Kang24p
