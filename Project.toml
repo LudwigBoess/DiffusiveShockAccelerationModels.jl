@@ -1,7 +1,7 @@
 name = "DiffusiveShockAccelerationModels"
 uuid = "66fc4661-a670-4cc2-b407-bfd81989e880"
 authors = ["Ludwig Böss"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
