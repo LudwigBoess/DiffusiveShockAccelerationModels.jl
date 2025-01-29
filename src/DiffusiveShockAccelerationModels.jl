@@ -3,7 +3,8 @@ module DiffusiveShockAccelerationModels
 
 export AbstractShockAccelerationEfficiency,
     # efficiency models
-    Kang07, KR13, CS14, Ryu19, P16,
+    Kang07, KR13, CS14, Ryu19, P16, 
+    Kang24_p, Kang24_e,
     # mach nummber dependent efficiency 
     η_Ms, η_Ms_acc, η_Ms_reacc,
     # B-field dependent efficiency
@@ -80,6 +81,7 @@ include("mach_models/KR13.jl")
 include("mach_models/CS14.jl")
 include("mach_models/Ryu19.jl")
 include("mach_models/Pfrommer16.jl")
+include("mach_models/Kang24.jl")
 
 include("B_models/pais.jl")
 
@@ -88,7 +90,7 @@ using PrecompileTools    # this is a small dependency
 @setup_workload begin
     # Putting some things in `setup` can reduce the size of the
     # precompile file and potentially make loading faster.
-    η_models = [Kang07(), KR13(), CS14(), Ryu19()]
+    η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e()]
 
     @compile_workload begin
         # all calls in this block will be precompiled, regardless of whether
@@ -97,7 +99,7 @@ using PrecompileTools    # this is a small dependency
         # loop over models
         for η ∈ η_models
             # loop over Mach numbers
-            for M ∈ [1.0, 1.5, 3.0, 10.0]
+            for M ∈ [1.0, 1.5, 3.0, 10.0, 100.0]
                 η_Ms_acc(η, M)
                 η_Ms_reacc(η, M)
                 # loop over seed populations

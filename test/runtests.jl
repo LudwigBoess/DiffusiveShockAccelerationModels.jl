@@ -92,6 +92,27 @@ end
 
         end
 
+        @testset "Kang 2024" begin
+            η_model = Kang24_p()
+            N_mach, M, η, η_r = read_dsa_data("Kang2024_p.dat")
+
+            @testset "protons" begin
+                for i = 1:N_mach
+                    @test η_Ms(η_model, M[i], 0.0) ≈ η[i]
+                end
+            end
+
+            η_model = Kang24_e()
+            N_mach, M, η, η_r = read_dsa_data("Kang2024_e.dat")
+
+            @testset "electrons" begin
+                for i = 1:N_mach
+                    @test η_Ms(η_model, M[i], 0.0) ≈ η_r[i]
+                end
+            end
+
+        end
+
         @testset "Pfrommer et. al. 2016" begin
             η_model = P16()
 
