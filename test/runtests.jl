@@ -1,4 +1,4 @@
-using Test, DiffusiveShockAccelerationModels
+using Test, DiffusiveShockAccelerationModels, Aqua
 
 function read_dsa_data(filename)
     f = open(filename, "r")
@@ -154,6 +154,10 @@ end
                 end
             end
         end
+    end
+
+    @testset "Aqua.jl (code quality)" begin
+        Aqua.test_all(DiffusiveShockAccelerationModels)
     end
 
 end
