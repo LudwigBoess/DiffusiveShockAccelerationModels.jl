@@ -44,11 +44,11 @@ Ryu19
 On top of that you can find the DSA model by [Kang (2024)](https://ui.adsabs.harvard.edu/abs/2024JKAS...57..155K/abstract):
 
 ```@docs
-Kang24p
+Kang24_p
 ```
 
 ```@docs
-Kang24e
+Kang24_e
 ```
 
 ![Kang 2024 DSA model](Kang2024.png)
@@ -60,6 +60,37 @@ You can also use the constant efficiency used by [Pfrommer et al. (2017)](https:
 P16
 ```
 
+These efficiency models can be used with::
+
+```@docs
+η_Ms
+```
+
+You can also disentangle this for either pure acceleration:
+
+```@docs
+η_Ms_acc
+```
+
+Or re-acceleration:
+
+```@docs
+η_Ms_reacc
+```
+
+## Defining your own acceleration efficiency
+
+You can also define your own acceleration efficiency as a subtype of
+
+```@docs
+AbstractShockAccelerationEfficiency
+```
+
+We provide a helper function for the fit used in Kang+2007 in case it's useful for your acceleration model:
+
+```@docs
+kr_fitting_function
+```
 
 # Magnetic field angle dependent efficiency models
 

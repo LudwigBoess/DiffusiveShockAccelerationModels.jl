@@ -1,11 +1,10 @@
-"""
-
-Taken from Vazza et. al. (2016): doi:10.1093/mnras/stw584
-
-They assume Caprioli+Spitkovsky (2014) efficiency is roughly half of Kang&Ryu (2013)
-
-We account for angle dependent efficiency independently.
-"""
+#"""
+#Taken from Vazza et. al. (2016): doi:10.1093/mnras/stw584
+#
+#They assume Caprioli+Spitkovsky (2014) efficiency is roughly half of Kang&Ryu (2013)
+#
+#We account for angle dependent efficiency independently.
+#"""
 const vazza_factor = 1//2
 
 """

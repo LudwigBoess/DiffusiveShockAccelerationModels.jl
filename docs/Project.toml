@@ -1,3 +1,9 @@
 [deps]
-DiffusiveShockAccelerationModels = "66fc4661-a670-4cc2-b407-bfd81989e880"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DiffusiveShockAccelerationModels = "66fc4661-a670-4cc2-b407-bfd81989e880"
+
+[compat]
+Documenter = "1"
+
+[sources]
+DiffusiveShockAccelerationModels = {path = ".."}
