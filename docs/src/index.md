@@ -44,11 +44,11 @@ Ryu19
 On top of that you can find the DSA model by [Kang (2024)](https://ui.adsabs.harvard.edu/abs/2024JKAS...57..155K/abstract):
 
 ```@docs
-Kang24p
+Kang24_p
 ```
 
 ```@docs
-Kang24e
+Kang24_e
 ```
 
 ![Kang 2024 DSA model](Kang2024.png)
