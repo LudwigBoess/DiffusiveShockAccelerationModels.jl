@@ -17,7 +17,7 @@ end
 Constant efficiency as in Pfrommer+ 2016, doi: 10.1093/mnras/stw2941 
 """
 function η_Ms_acc(η_model::P16, M::Real)
-    return 0.5
+    return η_model.η_max
 end
 
 """
@@ -26,5 +26,5 @@ end
 Constant efficiency as in Pfrommer+ 2016, doi: 10.1093/mnras/stw2941 
 """
 function η_Ms_reacc(η_model::P16, M::Real)
-    return 0.5
+    return η_model.η_max
 end
