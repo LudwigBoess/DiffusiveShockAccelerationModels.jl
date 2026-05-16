@@ -5,6 +5,8 @@ export AbstractShockAccelerationEfficiency,
     # efficiency models
     Kang07, KR13, CS14, Ryu19, P16, 
     Kang24_p, Kang24_e,
+    Gupta24_p, Gupta24_e, 
+    Gupta24_t, Pais2018_t, 
     # mach nummber dependent efficiency 
     η_Ms, η_Ms_acc, η_Ms_reacc,
     # B-field dependent efficiency
@@ -75,22 +77,29 @@ function η_Ms(η_model::AbstractShockAccelerationEfficiency, M::T, X_cr::T) whe
 end
 
 
-
 include("mach_models/Kang07.jl")
 include("mach_models/KR13.jl")
 include("mach_models/CS14.jl")
 include("mach_models/Ryu19.jl")
 include("mach_models/Pfrommer16.jl")
 include("mach_models/Kang24.jl")
+include("mach_models/Gupta24.jl")
 
 include("B_models/pais.jl")
+include("B_models/gupta.jl")
+
+ηB_acc_p(θ_B::Real) = ηB_acc_p(Pais2018_t(), θ_B)
+ηB_acc_e(θ_B::Real) = ηB_acc_e(Pais2018_t(), θ_B)
+ηB_reacc_p(θ_B::Real) = ηB_reacc_p(Pais2018_t(), θ_B)
+ηB_reacc_e(θ_B::Real) = ηB_reacc_e(Pais2018_t(), θ_B)
 
 using PrecompileTools    # this is a small dependency
 
 @setup_workload begin
     # Putting some things in `setup` can reduce the size of the
     # precompile file and potentially make loading faster.
-    η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e()]
+    η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e(), Gupta24_p(), Gupta24_e()]
+    B_models = [Pais2018_t(), Gupta24()]
 
     @compile_workload begin
         # all calls in this block will be precompiled, regardless of whether
@@ -109,10 +118,13 @@ using PrecompileTools    # this is a small dependency
             end
         end
 
-        ηB_acc_p(1.0)
-        ηB_reacc_p(1.0)
-        ηB_acc_e(1.0)
-        ηB_reacc_e(1.0)
+        # loop over models
+        for η ∈ B_models
+            ηB_acc_p(η, 1.0)
+            ηB_reacc_p(η, 1.0)
+            ηB_acc_e(η, 1.0)
+            ηB_reacc_e(η, 1.0)
+        end
     end
 end
 
