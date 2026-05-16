@@ -51,7 +51,7 @@ struct Gupta24_e{T} <: AbstractShockAccelerationEfficiency
     X_cr::T
     η_max::T
 
-    Gupta24_e(X_cr::T = 1.0, η_max::T = 0.06) where {T} = new{T}(X_cr, η_max)
+    Gupta24_e(X_cr::T = 1.0, η_max::T = 0.05) where {T} = new{T}(X_cr, η_max)
 end
 
 
@@ -65,7 +65,7 @@ function η_Ms_acc(η_model::Gupta24_e, M::Real)
         return 0
     else
         p = [19.301588195907662, -0.6544505664085758, 30053.623240151297, -2.420544376432326, 0.0024391157810159103]
-        return p[1] * M^p[2] / (1 + p[3] * M^p[4]) + p[5]
+        return (p[1] * M^p[2] / (1 + p[3] * M^p[4]) + p[5]) * 0.25
     end
 end
 

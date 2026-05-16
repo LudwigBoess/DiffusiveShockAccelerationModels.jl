@@ -99,7 +99,7 @@ using PrecompileTools    # this is a small dependency
     # Putting some things in `setup` can reduce the size of the
     # precompile file and potentially make loading faster.
     η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e(), Gupta24_p(), Gupta24_e()]
-    B_models = [Pais2018_t(), Gupta24()]
+    B_models = [Pais2018_t(), Gupta2024_t()]
 
     @compile_workload begin
         # all calls in this block will be precompiled, regardless of whether
