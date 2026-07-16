@@ -6,7 +6,7 @@ export AbstractShockAccelerationEfficiency,
     Kang07, KR13, CS14, Ryu19, P16, 
     Kang24_p, Kang24_e,
     Gupta24_p, Gupta24_e, 
-    Gupta24_t, Pais2018_t, 
+    Gupta2024_t, Pais2018_t, 
     # mach nummber dependent efficiency 
     η_Ms, η_Ms_acc, η_Ms_reacc,
     # B-field dependent efficiency
