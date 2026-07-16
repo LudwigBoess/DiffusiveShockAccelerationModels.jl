@@ -101,7 +101,13 @@ kr_fitting_function
 
 # Magnetic field angle dependent efficiency models
 
-Another parameter in the acceleration efficiency is the shock obliquity. Here we used the results from [Pais et al. (2019)](http://arxiv.org/abs/1907.04300) who fit a functional form to the data by [Caprioli&Spitkovsky (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...783...91C/abstract).
+Another parameter in the acceleration efficiency is the shock obliquity. 
+
+```@docs
+η_B
+```
+
+Here we provide the results from [Pais et al. (2019)](http://arxiv.org/abs/1907.04300) who fit a functional form to the data by [Caprioli&Spitkovsky (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...783...91C/abstract).
 
 ```@docs
 Pais2018_t
