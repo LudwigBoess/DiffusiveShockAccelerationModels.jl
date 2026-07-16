@@ -5,7 +5,7 @@ export AbstractShockAccelerationEfficiency,
     # efficiency models
     Kang07, KR13, CS14, Ryu19, P16, 
     Kang24_p, Kang24_e,
-    Gupta24_p, Gupta24_e, 
+    Gupta24_e, 
     Gupta2024_t, Pais2018_t, 
     # mach nummber dependent efficiency 
     η_Ms, η_Ms_acc, η_Ms_reacc,
@@ -98,7 +98,7 @@ using PrecompileTools    # this is a small dependency
 @setup_workload begin
     # Putting some things in `setup` can reduce the size of the
     # precompile file and potentially make loading faster.
-    η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e(), Gupta24_p(), Gupta24_e()]
+    η_models = [Kang07(), KR13(), CS14(), Ryu19(), Kang24_p(), Kang24_e(), Gupta24_e()]
     B_models = [Pais2018_t(), Gupta2024_t()]
 
     @compile_workload begin

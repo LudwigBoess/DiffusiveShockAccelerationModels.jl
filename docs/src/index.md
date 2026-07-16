@@ -54,6 +54,13 @@ Kang24_e
 ![Kang 2024 DSA model](Kang2024.png)
 
 
+Version `v0.2` included the model by [Gupta et al. (2025)](https://arxiv.org/pdf/1805.00128.pdf)
+
+```@docs
+Gupta24_e
+```
+
+
 You can also use the constant efficiency used by [Pfrommer et al. (2017)](https://ui.adsabs.harvard.edu/abs/2017MNRAS.465.4500P/abstract):
 
 ```@docs
@@ -97,7 +104,13 @@ kr_fitting_function
 Another parameter in the acceleration efficiency is the shock obliquity. Here we used the results from [Pais et al. (2019)](http://arxiv.org/abs/1907.04300) who fit a functional form to the data by [Caprioli&Spitkovsky (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...783...91C/abstract).
 
 ```@docs
-η_B
+Pais2018_t
+```
+
+Or for electrons we supply the model by Gupta et al. (2024).
+
+```@docs
+Gupta2024_t
 ```
 
 ## Ions
@@ -114,7 +127,7 @@ Ions are found to be accelerated primarily at quasi-parallel shocks. We provide 
 
 ## Electrons
 
-Electrons are found to be accelerated primarily at quasi-perpendicular shocks. We provide two helper functions for this.
+Electron acceleration can be modeled via
 
 ```@docs
 ηB_acc_e
@@ -131,13 +144,14 @@ To use for example the mach number dependent model by [Kang & Ryu (2013)](https:
 ```julia
 using DiffusiveShockAccelerationModels
 
-ηM_model = KR13()  # Mach number dependent model
-Mach = 5.0         # we assume a Mach 5 shock
-θ_B  = 0.1π        # angle between shock normal and magnetic field vector
+ηM_model = KR13()       # Mach number dependent model
+ηM_model = Pais2018_t() # Obliquity dependent model
+Mach = 5.0              # we assume a Mach 5 shock
+θ_B  = 0.1π             # angle between shock normal and magnetic field vector
 X_cr = 0.0         # X_cr = P_cr / P_th -> in this case no pre-existing CRs
 
 # magnetic field angle dependent acc. efficiency
-ηB   = ηB_acc_p(θ_B)  
+ηB   = ηB_acc_p(ηB_model, θ_B)  
 
 # Mach number dependent acc. efficiency
 ηM   = η_Ms(ηM_model, Mach, X_cr)
